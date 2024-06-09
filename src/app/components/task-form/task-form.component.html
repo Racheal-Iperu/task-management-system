@@ -1,26 +1,36 @@
+<div *ngIf="showSuccessAlert" class="alert alert-success" role="alert">
+  Task submitted successfully!
+</div>
+<div *ngIf="showFailAlert" class="alert alert-success" role="alert">
+  Failed to save task, try again later!
+</div>
 <div class="card shadow-sm m-3">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="container mt-2">
     <div class="mb-3">
       <label for="taskName" class="form-label">Task</label>
       <input type="text" id="taskName" class="form-control" formControlName="taskName" placeholder="Task">
+      <div *ngIf="formGroup.get('taskName').invalid && submitted " class="text-danger small">Task Name is required</div>
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea id="description" class="form-control" formControlName="description" rows="3" placeholder="Description"></textarea>
+      <div *ngIf="formGroup.get('description').invalid && submitted " class="text-danger small">Task description is required</div>
     </div>
     <div class="mb-3">
       <label for="status" class="form-label">Status</label>
       <select id="status" class="form-select" formControlName="status">
-        <option value="Pending">Pending</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Completed">Completed</option>
+        <option value="pending">Pending</option>
+        <option value="in_progress">In Progress</option>
+        <option value="completed">Completed</option>
       </select>
+      <div *ngIf="formGroup.get('status').invalid && submitted " class="text-danger small">Task status is required</div>
     </div>
     <div class="mb-3">
       <label for="assignee" class="form-label">Assigned To</label>
       <select id="assignee" class="form-select" formControlName="assignee">
       <option *ngFor="let option of users" [value]="option.fName">{{ option.fName }}</option>
       </select>
+      <div *ngIf="formGroup.get('assignee').invalid && submitted " class="text-danger small">Assignee is required</div>
     </div>
     <div class="mb-3">
       <button type="submit" class="btn btn-primary">Submit</button>

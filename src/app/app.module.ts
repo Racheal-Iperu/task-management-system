@@ -14,13 +14,15 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TasksDashboardComponent } from './components/tasks-dashboard/tasks-dashboard.component';
 import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from "@angular/material/grid-list";
+import { TitleCasePipe } from './pipes/title-case.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TaskFormComponent,
-    TasksDashboardComponent
+    TasksDashboardComponent,
+    TitleCasePipe
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,13 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+            <div class="input-group">
+              <input [attr.type]="fieldTextType ? 'text' : 'password'" class="form-control" id="password" placeholder="Password" formControlName="password">
+              <i type="button" (click)="togglePasswordVisibility()" [ngClass]="fieldTextType ? 'bi bi-eye' : 'bi bi-eye-slash'" class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
+            </div>
+          </div>
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{ errorMessage }}
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

@@ -15,6 +15,9 @@ export class TaskFormComponent implements OnInit {
   editing: boolean = false
   taskId: number
  users: any;
+  submitted:boolean = false
+ showSuccessAlert: boolean = false;
+  showFailAlert: boolean = false;
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
@@ -43,25 +46,40 @@ export class TaskFormComponent implements OnInit {
 
   }
   onSubmit() {
+    this.submitted = true
     if (this.formGroup.invalid) {
       return
     } else {
       if (this.editing) {
         this.tasksService.updateTask(this.formGroup.value, this.taskId).subscribe({
           next: (res => {
-            this.router.navigate([`dashBoard`])
+            this.showSuccessAlert = true;
+            setTimeout(() => {
+              this.showSuccessAlert = false;
+              this.router.navigate([`dashBoard`])
+            }, 2000);
           }),
           error: (error: HttpErrorResponse) => {
-
+            this.showFailAlert = true;
+            setTimeout(() => {
+              this.showFailAlert = false;
+            }, 2000);
           }
         })
       } else {
         this.tasksService.createTask(this.formGroup.value).subscribe({
           next: (res => {
-            this.router.navigate([`dashBoard`])
+            this.showSuccessAlert = true;
+            setTimeout(() => {
+              this.showSuccessAlert = false;
+              this.router.navigate([`dashBoard`])
+            }, 2000);
           }),
           error: (error: HttpErrorResponse) => {
-
+            this.showFailAlert = true;
+            setTimeout(() => {
+              this.showFailAlert = false;
+            }, 2000);
           }
         })
       }

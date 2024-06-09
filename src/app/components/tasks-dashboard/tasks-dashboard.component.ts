@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./tasks-dashboard.component.css']
 })
 export class TasksDashboardComponent implements OnInit {
-  tasks
+  tasks: any;
 
   constructor(private tasksService: TasksService,
               private route: Router) {

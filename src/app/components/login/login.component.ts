@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit{
   loginForm: FormGroup ;
+  fieldTextType:boolean = false;
+  errorMessage: string;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -26,13 +28,16 @@ ngOnInit() {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value.username,this.loginForm.value.password).subscribe({
         next:(response)=>{
-          console.log(response)
           this.route.navigate([`dashBoard`])
         },
         error:(error)=>{
-
+          this.errorMessage = 'Wrong username or password';
         }
       });
     }
+  }
+
+  togglePasswordVisibility() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }

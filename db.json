@@ -15,45 +15,45 @@
   ],
   "tasks": [
     {
-      "assignee": "Ray",
-      "status": "Pending",
+      "assignee": "Doe",
+      "status": "pending",
       "taskName": "Sample Task",
       "description": "This is a sample task",
       "id": 1
     },
     {
-      "id": 2,
+      "assignee": "Jonny",
+      "status": "pending",
       "taskName": "Test Task",
       "description": "This is a Test task",
-      "status": "In progress",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "completed",
       "assignee": "Eve"
     },
     {
-      "id": 2,
+      "assignee": "Doe",
+      "status": "in_progress",
       "taskName": "Test Task",
       "description": "This is a Test task",
-      "status": "In progress",
+      "id": 4
+    },
+    {
+      "id": 5,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "completed",
       "assignee": "Eve"
     },
     {
-      "id": 2,
+      "id": 6,
       "taskName": "Test Task",
       "description": "This is a Test task",
-      "status": "In progress",
-      "assignee": "Eve"
-    },
-    {
-      "id": 2,
-      "taskName": "Test Task",
-      "description": "This is a Test task",
-      "status": "In progress",
-      "assignee": "Eve"
-    },
-    {
-      "id": 2,
-      "taskName": "Test Task",
-      "description": "This is a Test task",
-      "status": "In progress",
+      "status": "completed",
       "assignee": "Eve"
     }
   ]
