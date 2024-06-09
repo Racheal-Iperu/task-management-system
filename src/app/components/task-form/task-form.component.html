@@ -18,7 +18,9 @@
     </div>
     <div class="mb-3">
       <label for="assignee" class="form-label">Assigned To</label>
-      <input type="text" id="assignee" class="form-control" formControlName="assignee" placeholder="Assignee">
+      <select id="assignee" class="form-select" formControlName="assignee">
+      <option *ngFor="let option of users" [value]="option.fName">{{ option.fName }}</option>
+      </select>
     </div>
     <div class="mb-3">
       <button type="submit" class="btn btn-primary">Submit</button>
