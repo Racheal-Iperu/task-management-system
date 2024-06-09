@@ -13,7 +13,7 @@ export class AuthService {
   private authStatus = new BehaviorSubject<boolean>(false);
 
   private apiUrl = 'http://localhost:3000'; // JSON Server URL
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<string> {
     // Send a GET request to retrieve the user with the provided username and password
