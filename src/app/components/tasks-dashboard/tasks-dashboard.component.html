@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="card p-4 bg-light">
+    <div class="row justify-content-center">
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-secondary ms-2" (click)="addTask()" >Add new Task</button>
+      </div>
+      <div class="col-10 col-md-5 mb-3" *ngFor="let task of tasks">
+        <div class="card task-card" (click)="handleTaskClick(task)">
+          <div class="card-header">
+            <h5 class="card-title">{{ task.taskName }}</h5>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Status: {{ task.status }}</p>
+            <p class="card-text">Assignee: {{ task.assignee }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,15 @@
+.container {
+  padding-top: 50px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card .form-label {
+  font-weight: bold;
+}

@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password1",
+      "fName": "Jonny"
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password2",
+      "fName": "Doe"
+    }
+  ],
+  "tasks": [
+    {
+      "assignee": "Ray",
+      "status": "Pending",
+      "taskName": "Sample Task",
+      "description": "This is a sample task",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "In progress",
+      "assignee": "Eve"
+    },
+    {
+      "id": 2,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "In progress",
+      "assignee": "Eve"
+    },
+    {
+      "id": 2,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "In progress",
+      "assignee": "Eve"
+    },
+    {
+      "id": 2,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "In progress",
+      "assignee": "Eve"
+    },
+    {
+      "id": 2,
+      "taskName": "Test Task",
+      "description": "This is a Test task",
+      "status": "In progress",
+      "assignee": "Eve"
+    }
+  ]
+}
