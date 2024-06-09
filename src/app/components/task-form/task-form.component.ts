@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TasksService} from "../../services/tasks.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-task-form',
@@ -13,14 +14,17 @@ export class TaskFormComponent implements OnInit {
   formGroup: FormGroup;
   editing: boolean = false
   taskId: number
+ users: any;
 
   constructor(private fb: FormBuilder,
               private route: ActivatedRoute,
               private tasksService: TasksService,
+              private usersService: UsersService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    this.getUsers();
     this.formGroup = this.fb.group({
       assignee: ['', [Validators.required]],
       status: ['', Validators.required],
@@ -83,5 +87,13 @@ export class TaskFormComponent implements OnInit {
 
   backToDashBoard(){
     this.router.navigate([`dashBoard`])
+  }
+
+  getUsers(){
+    this.usersService.getUsers().subscribe({
+      next:(res)=>{
+        this.users= res
+      }
+    })
   }
 }
