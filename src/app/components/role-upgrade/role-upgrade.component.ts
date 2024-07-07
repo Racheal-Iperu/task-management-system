@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -6,9 +6,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: './role-upgrade.component.html',
   styleUrls: ['./role-upgrade.component.css']
 })
-export class RoleUpgradeComponent implements OnInit {
+export class RoleUpgradeComponent implements OnInit , AfterViewInit{
   formGroup!: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private el: ElementRef, private renderer: Renderer2) { }
 roles = [{
   id: 3,
   name: "Transport",
@@ -58,4 +58,11 @@ roles = [{
     });
   }
 
+
+  ngAfterViewInit() {
+    const contents = this.el.nativeElement.querySelectorAll('.mat-content');
+    contents.forEach((content: HTMLElement) => {
+      this.renderer.setStyle(content, 'overflow', 'visible');
+    });
+  }
 }

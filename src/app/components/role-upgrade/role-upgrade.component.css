@@ -10,7 +10,7 @@
 }
 
 .show-overflow {
-  @apply overflow-visible relative;
+  @apply overflow-visible;
 }
 
 .icon-container {
@@ -49,4 +49,7 @@
   }
 }
 
+/*:host ::ng-deep .mat-expansion-panel-header .mat-content {*/
+/*  overflow: visible !important;*/
+/*}*/
 
