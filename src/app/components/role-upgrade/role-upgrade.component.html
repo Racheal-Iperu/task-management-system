@@ -1,0 +1,237 @@
+<!--role upgrade-->
+<div class="lg:grid-rows-2 grid-cols-1 lg:grid-cols-[auto_1fr] gap-6 self-center m-8
+flex justify-center items-center" *ngFor="let role of roles">
+  <mat-accordion class="w-full lg:w-3/4">
+    <mat-expansion-panel class="mb-4">
+      <mat-expansion-panel-header class="bg-dark-subtle" >
+        <mat-panel-title>
+          <b>{{ role.name }}</b>
+        </mat-panel-title>
+        <mat-panel-description class="flex justify-end relative">
+          <div class="icon-container ml-2" *ngIf="role.id !== 2 && role.id !== 1; else notRole1Or2">
+            <img [src]="role.icon" alt="{{ role.name }} logo" class="img">
+          </div>
+          <ng-template #notRole1Or2>
+            <div class="icon-container2 ml-2">
+              <img [src]="role.icon" alt="{{ role.name }} logo" class="img">
+            </div>
+          </ng-template>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{ 'importo richiesto '  }}: {{role.cost | number:'':'en-US'}}</p>
+
+      <mat-action-row>
+        <button mat-raised-button color="primary" type="submit" >
+          {{ 'aggiornamento' }}
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+
+<!--personali-->
+<div class="m-8 flex justify-end">
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 w-full sm:w-full md:w-[88%] lg:w-[90%] -mt-12" [formGroup]="formGroup" >
+
+    <!-- Left Column -->
+    <div class="space-y-4 mr-8">
+      <!-- Field 1 -->
+      <div class="flex flex-col">
+        <label for="field1" class="text-sm font-medium text-gray-700">Name<span class="text-red-500">*</span></label>
+        <input id="field1" type="text" placeholder="name"  formControlName="name"
+               class="mt-1 block w-full px-3 py-2 border border-gray-400 rounded-xl  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 2 -->
+      <div class="flex flex-col">
+        <label for="field2" class="text-sm font-medium text-gray-700">Email<span class="text-red-500">*</span></label>
+        <input id="field2" type="email" placeholder="youremail@mondogallo.com" formControlName="email"
+               class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 3 -->
+      <div class="flex flex-col">
+        <label for="field3" class="text-sm font-medium text-gray-700">Nome Utente</label>
+        <input id="field3" type="text" placeholder="Scegli nome utente" formControlName="username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 4 -->
+      <div class="flex flex-col">
+        <label for="field4" class="text-sm font-medium text-gray-700">{{ 'Inddrizi' }}</label>
+        <input id="field4" type="text" placeholder="indrizzi" formControlName="indrizzi" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 5 -->
+      <div class="flex flex-col">
+        <label for="field5" class="text-sm font-medium text-gray-700">{{ 'Provincia' }}<span class="text-red-500">*</span></label>
+        <input id="field5" type="text" placeholder="Field 5" formControlName="province" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="space-y-4">
+      <!-- Field 6 -->
+      <div class="flex flex-col">
+        <label for="field6" class="text-sm font-medium text-gray-700">{{ 'Cognome' }}<span class="text-red-500">*</span></label>
+        <input id="field6" type="text" placeholder="cognome"  formControlName="cognome" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 7 -->
+      <div class="flex flex-col">
+        <label for="field7" class="text-sm font-medium text-gray-700">{{ 'Data di nacita' }}</label>
+        <input id="field7" type="date" placeholder="Field 7" formControlName="dateOfBirth" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+
+      <!-- Field 8 -->
+      <div class="flex flex-col" style="visibility: hidden">
+        <label class="text-sm font-medium text-transparent">
+        </label>
+        <div class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl bg-gray-100 shadow-sm focus:outline-none sm:text-sm mb-2"></div>
+      </div>
+
+
+      <!-- Field 9 -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- Field 9A -->
+        <div class="flex flex-col mr-8">
+          <label for="field9A" class="text-sm font-medium text-gray-700">{{ 'Citta' }}</label>
+          <select id="field9a" name="field9a" formControlName="city" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+            <option value="" disabled selected>Select an option</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </div>
+
+        <!-- Field 9B -->
+        <div class="flex flex-col">
+          <label for="field9B" class="text-sm font-medium text-gray-700">{{ 'Cap' }}</label>
+          <input id="field9B" type="number" placeholder="Field 9B" formControlName="CAP" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+        </div>
+      </div>
+
+
+      <!-- Field 10 -->
+      <div class="flex flex-col">
+        <label for="field10" class="text-sm font-medium text-gray-700">{{ 'Stato' }}<span class="text-red-500">*</span></label>
+        <input id="field10" type="text" placeholder="Field 10"  formControlName="state" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-span-2 text-right">
+      <button mat-raised-button color="primary" type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-xl shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">{{'salva'}}</button>
+    </div>
+  </form>
+
+</div>
+
+
+<!--Descrizione-->
+<div class="m-8 flex justify-end">
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 w-full sm:w-full md:w-[88%] lg:w-[90%] -mt-12" [formGroup]="formGroup" >
+    <!-- Full-Width Textarea -->
+    <div class="col-span-2 flex flex-col">
+      <label for="description" class="text-sm font-medium text-gray-700">Descrizione<span class="text-red-500">*</span></label>
+      <textarea id="description" placeholder="Scrivi un breve testo che descriva te e la tua attività" formControlName="description"
+                class="mt-1 block w-full px-3 py-2 border border-gray-400 rounded-xl focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2 resize-none h-24 md:h-32 lg:h-40"
+                rows="8"></textarea>
+
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-span-2 text-right">
+      <button mat-raised-button color="primary" type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-xl shadow-sm hover:bg-orange-600-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mt-auto">{{'salva'}}</button>
+    </div>
+  </form>
+
+
+</div>
+
+
+<!--Attitivita-->
+<div class="m-8 flex justify-end">
+  <form class="grid grid-cols-1 gap-4 p-4 w-full sm:w-full md:w-[88%] lg:w-[90%] -mt-12"  [formGroup]="formGroup">
+    <!-- Full-width Fields -->
+    <div class="space-y-4">
+      <!-- Field 1 -->
+      <div class="flex flex-col">
+        <label for="field1" class="text-sm font-medium text-gray-700">Tipologia</label>
+        <select id="field1" formControlName="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Name</option>
+          <!-- Replace these options with actual data -->
+          <option value="name1">Name 1</option>
+          <option value="name2">Name 2</option>
+          <option value="name3">Name 3</option>
+        </select>
+      </div>
+
+      <!-- Field 2 -->
+      <div class="flex flex-col">
+        <label for="field2" class="text-sm font-medium text-gray-700">SottoTipologie 2</label>
+        <select id="field2" formControlName="email"   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Email</option>
+          <!-- Replace these options with actual data -->
+          <option value="email1">Email 1</option>
+          <option value="email2">Email 2</option>
+          <option value="email3">Email 3</option>
+        </select>
+      </div>
+
+      <!-- Field 3 -->
+      <div class="flex flex-col">
+        <label for="field3" class="text-sm font-medium text-gray-700">Tipologia</label>
+        <select id="field3" formControlName="username" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Username</option>
+          <!-- Replace these options with actual data -->
+          <option value="username1">Username 1</option>
+          <option value="username2">Username 2</option>
+          <option value="username3">Username 3</option>
+        </select>
+      </div>
+
+      <!-- Field 4 -->
+      <div class="flex flex-col">
+        <label for="field4" class="text-sm font-medium text-gray-700">{{ 'Inddrizi'}}</label>
+        <select id="field4" formControlName="indrizzi" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Indrizzi</option>
+          <!-- Replace these options with actual data -->
+          <option value="indrizzi1">Indrizzi 1</option>
+          <option value="indrizzi2">Indrizzi 2</option>
+          <option value="indrizzi3">Indrizzi 3</option>
+        </select>
+      </div>
+
+      <!-- Field 5 -->
+      <div class="flex flex-col">
+        <label for="field5" class="text-sm font-medium text-gray-700">{{ 'Provincia'  }}<span class="text-red-500">*</span></label>
+        <select id="field5" formControlName="province" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Provincia</option>
+          <!-- Replace these options with actual data -->
+          <option value="provincia1">Provincia 1</option>
+          <option value="provincia2">Provincia 2</option>
+          <option value="provincia3">Provincia 3</option>
+        </select>
+      </div>
+
+      <!-- Field 6 -->
+      <div class="flex flex-col">
+        <label for="field6" class="text-sm font-medium text-gray-700">{{ 'Cognome'}}<span class="text-red-500">*</span></label>
+        <select id="field6" formControlName="cognome" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm mb-2">
+          <option value="" disabled selected>Select Cognome</option>
+          <!-- Replace these options with actual data -->
+          <option value="cognome1">Cognome 1</option>
+          <option value="cognome2">Cognome 2</option>
+          <option value="cognome3">Cognome 3</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="text-right">
+        <button mat-raised-button color="primary" type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-xl shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">{{'salva'}}</button>
+      </div>
+    </div>
+  </form>
+
+</div>

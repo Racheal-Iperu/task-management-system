@@ -5,12 +5,14 @@ import {AuthGuard} from 'src/app/guards/auth.guard'
 import {LoginComponent} from "./components/login/login.component";
 import {TaskFormComponent} from "./components/task-form/task-form.component";
 import {TasksDashboardComponent} from "./components/tasks-dashboard/tasks-dashboard.component";
+import {RoleUpgradeComponent} from "./components/role-upgrade/role-upgrade.component";
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'tasks-form', component: TaskFormComponent,canActivate:[AuthGuard]},
   { path: 'tasks-form/:taskId', component: TaskFormComponent,canActivate:[AuthGuard]},
   { path: 'dashBoard', component: TasksDashboardComponent,canActivate:[AuthGuard]},
+  { path: 'roles', component: RoleUpgradeComponent}
 ];
 
 @NgModule({

@@ -4,7 +4,10 @@ module.exports = {
     "./src/**/*.{html,ts}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        cream: '#f5f5dc', // Define your custom cream color here
+      },},
   },
   plugins: [],
 }

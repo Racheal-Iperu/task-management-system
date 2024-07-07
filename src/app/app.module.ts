@@ -15,6 +15,8 @@ import { TasksDashboardComponent } from './components/tasks-dashboard/tasks-dash
 import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { TitleCasePipe } from './pipes/title-case.pipe';
+import { RoleUpgradeComponent } from './components/role-upgrade/role-upgrade.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -22,20 +24,22 @@ import { TitleCasePipe } from './pipes/title-case.pipe';
     LoginComponent,
     TaskFormComponent,
     TasksDashboardComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    RoleUpgradeComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    RouterModule,
-    MatSelectModule,
-    MatGridListModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        RouterModule,
+        MatSelectModule,
+        MatGridListModule,
+        MatExpansionModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,52 @@
+/* Using Tailwind's utility classes in your styles */
+.icon-container,
+.icon-container2 {
+  @apply relative ml-2;
+}
+
+.img {
+  @apply w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44;
+  height: auto;
+}
+
+.show-overflow {
+  @apply overflow-visible relative;
+}
+
+.icon-container {
+  @apply absolute;
+  top: -5px; /* Default position for smallest screens */
+  transform: translateY(-5%); /* Default vertical translation */
+  @apply overflow-visible;
+}
+
+/* Responsive styles for larger screens */
+@media (min-width: 640px) {
+  .icon-container {
+    top: -10px;
+    transform: translateY(-10%);
+  }
+}
+
+@media (min-width: 768px) {
+  .icon-container {
+    top: -12px;
+    transform: translateY(-12%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .icon-container {
+    top: -15px;
+    transform: translateY(-15%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .icon-container {
+    top: -18px;
+    transform: translateY(-18%);
+  }
+}
+
+
