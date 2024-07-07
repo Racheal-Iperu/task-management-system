@@ -5,7 +5,7 @@
 }
 
 .img {
-  @apply w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44;
+  @apply w-40 sm:w-56 md:w-48 lg:w-52 xl:w-56;
   height: auto;
 }
 
@@ -24,28 +24,28 @@
 @media (min-width: 640px) {
   .icon-container {
     top: -10px;
-    transform: translateY(-10%);
+    transform: translateY(-8%);
   }
 }
 
 @media (min-width: 768px) {
   .icon-container {
     top: -12px;
-    transform: translateY(-12%);
+    transform: translateY(-10%);
   }
 }
 
 @media (min-width: 1024px) {
   .icon-container {
     top: -15px;
-    transform: translateY(-15%);
+    transform: translateY(-13%);
   }
 }
 
 @media (min-width: 1280px) {
   .icon-container {
     top: -18px;
-    transform: translateY(-18%);
+    transform: translateY(-16%);
   }
 }
 
